@@ -34,8 +34,8 @@ export default function Hero() {
         className="absolute inset-0 z-0 h-full w-full object-cover lg:hidden"
       />
 
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/20 to-black/10 lg:from-black/50 lg:via-black/20 lg:to-transparent" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/50 via-transparent to-black/10 lg:from-black/35" />
+      <div className="absolute inset-0 z-10 bg-linear-to-r from-black/55 via-black/20 to-black/10 lg:from-black/50 lg:via-black/20 lg:to-transparent" />
+      <div className="absolute inset-0 z-10 bg-linear-to-t from-black/50 via-transparent to-black/10 lg:from-black/35" />
 
       <div className="relative z-20 flex min-h-screen flex-col">
         <header className="pt-5 lg:pt-7">
@@ -49,9 +49,9 @@ export default function Hero() {
                     alt="Hiking Friends Sri Lanka logo"
                     width={34}
                     height={34}
-                    className="h-8 w-8 rounded-full object-cover lg:h-9 lg:w-9"
+                    className="h-12 w-12 rounded-full object-cover lg:h-9 lg:w-9"
                   />
-                  <span className="font-luxury text-lg tracking-wide lg:text-xl">Hiking Friends</span>
+                  <span className="font-luxury text-lg tracking-wide lg:text-xl lg:block hidden">Hiking Friends</span>
                 </div>
 
                 <nav className="hidden items-center gap-7 text-sm text-white/95 lg:flex">

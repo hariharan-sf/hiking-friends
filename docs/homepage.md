@@ -309,3 +309,116 @@ Deliver:
 - include all Tailwind classes
 - no placeholder pseudocode
 - production-ready code
+
+
+
+
+javascript
+'use client';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+
+// Configuration Constants
+const CONFIG = {
+slideWidth: 300,
+slideHeight: 400,
+gap: 50,
+totalSlides: 9,
+arcDepth: 150,
+centerLift: 50,
+scrollSpeed: 0.5,
+ease: 0.05,
+};
+
+export default function Home() {
+const containerRef = useRef(null);
+const titleRef = useRef(null);
+
+useEffect(() => {
+const container = containerRef.current;
+const slides = gsap.utils.toArray('.slide');
+const trackWidth = CONFIG.totalSlides * (CONFIG.slideWidth + CONFIG.gap);
+
+let scrollOffset = 0;
+let targetOffset = 0;
+let activeSlideIndex = -1;
+
+// --- 1. Position Calculation Math ---
+const computeSlideTransform = (index, offset) => {
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
+const centerX = viewportWidth / 2;
+const baselineY = viewportHeight * 0.4;
+
+// Basic position + scroll
+let x = index * (CONFIG.slideWidth + CONFIG.gap) - offset;
+
+// Infinite loop wrapping logic
+x = ((x + trackWidth / 2) % trackWidth + trackWidth) % trackWidth - trackWidth / 2;
+
+// Calculate distance from center for scaling and arc
+const distance = Math.abs(x) / viewportWidth;
+const scale = gsap.utils.clamp(0.25, 1, 1 - distance * 1.5);
+
+// --- The Cosine Function for the Arc ---
+const arcDrop = Math.cos(distance * Math.PI) * CONFIG.arcDepth;
+const centerLift = Math.max(0, CONFIG.centerLift - distance * 300);
+
+return {
+x: centerX + x - CONFIG.slideWidth / 2,
+y: baselineY + arcDrop - centerLift,
+scale,
+zIndex: Math.round(100 - distance * 100),
+distance,
+};
+};
+
+// --- 2. Render Loop ---
+const layoutSlides = (offset) => {
+slides.forEach((slide, i) => {
+const transform = computeSlideTransform(i, offset);
+gsap.set(slide, {
+x: transform.x,
+y: transform.y,
+scale: transform.scale,
+zIndex: transform.zIndex,
+width: CONFIG.slideWidth,
+height: CONFIG.slideHeight,
+position: 'absolute',
+top: 0,
+left: 0,
+});
+});
+};
+
+// --- 3. Scroll Handling ---
+const handleWheel = (e) => {
+targetOffset += e.deltaY * CONFIG.scrollSpeed;
+};
+
+window.addEventListener('wheel', handleWheel);
+
+// --- 4. Animation Frame (Ticker) ---
+gsap.ticker.add(() => {
+// Smooth easing
+scrollOffset += (targetOffset - scrollOffset) * CONFIG.ease;
+layoutSlides(scrollOffset);
+
+// Update Title (simplified for brevity)
+if (titleRef.current) {
+titleRef.current.innerText = Slide ${Math.floor((scrollOffset / (CONFIG.slideWidth + CONFIG.gap)) % CONFIG.totalSlides + 1)};
+}
+});
+
+return () => {
+window.removeEventListener('wheel', handleWheel);
+gsap.ticker.remove(layoutSlides);
+};
+}, []);
+
+return (
+
+))}
+
+);
+}

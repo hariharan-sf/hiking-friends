@@ -1,4 +1,6 @@
+"use client";
 import SectionReveal from "@/components/section-reveal";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
