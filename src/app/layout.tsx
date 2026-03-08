@@ -1,10 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const raleway = localFont({
+  src: [
+    {
+      path: "../../public/font/Raleway-VariableFont_wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Raleway-Italic-VariableFont_wght.ttf",
+      style: "italic",
+    },
+  ],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const playfair = localFont({
+  src: [
+    {
+      path: "../../public/font/Playfair-VariableFont_opsz,wdth,wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Playfair-Italic-VariableFont_opsz,wdth,wght.ttf",
+      style: "italic",
+    },
+  ],
+  variable: "--font-luxury",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Hiking Friends Sri Lanka",
-  description: "Hiking Friends Sri Lanka",
+  description: "Guided hiking adventures across Hatton highlands, Sri Lanka.",
 };
 
 export default function RootLayout({
@@ -14,11 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${raleway.variable} ${playfair.variable} antialiased scroll-smooth`}>{children}</body>
     </html>
   );
 }
