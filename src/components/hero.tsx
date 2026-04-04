@@ -23,7 +23,7 @@ export default function Hero() {
         alt="Aerial view of hikers above tea-covered valleys in Hatton, Sri Lanka"
         width={1920}
         height={1080}
-        priorit
+        priority
         className="absolute inset-0 z-0 hidden h-full w-full object-cover lg:block"
       />
       <Image
