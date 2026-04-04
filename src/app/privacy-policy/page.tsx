@@ -11,6 +11,7 @@ const navItems = [
 
 const bookHikeUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
+const contactEmail = "info@srilankahikingfriends.com";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -84,7 +85,11 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-700">
             Depending on your location, you may have rights to access, correct,
             or delete your personal data. To make a request, please contact us
-            using the details on our website.
+            at{" "}
+            <a href={`mailto:${contactEmail}`} className="font-medium text-amber-700 hover:text-amber-800">
+              {contactEmail}
+            </a>
+            .
           </p>
         </section>
 
@@ -102,7 +107,11 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-semibold text-gray-900">Contact Us</h2>
           <p className="text-gray-700">
             If you have any questions about this Privacy Policy, please contact
-            us through our website contact channels.
+            us at{" "}
+            <a href={`mailto:${contactEmail}`} className="font-medium text-amber-700 hover:text-amber-800">
+              {contactEmail}
+            </a>
+            .
           </p>
         </section>
       </div>

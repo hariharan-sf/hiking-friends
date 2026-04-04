@@ -1,6 +1,7 @@
 "use client";
 import SectionReveal from "@/components/section-reveal";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -43,10 +44,10 @@ export default function FaqSection() {
 
             <SectionReveal delay={0.08}>
               <div className="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-amber-100">
-                <div className="mb-4 h-14 w-14 rounded-full border border-amber-200 bg-amber-50" />
+                <Image src="/images/shf-head-shot.webp" alt="Hiking Friends Sri Lanka head shot" width={56} height={56} className="mb-4 h-14 w-14 rounded-full border border-amber-200 bg-amber-50" />
                 <h3 className="font-luxury text-3xl text-slate-800">Book a 15 min call</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  If you have any questions, book a 15-minute call with us before subscribing.
+                  If you have any questions, book a 15-minute call to get more information.
                 </p>
                 <a
                   href={whatsappUrl}

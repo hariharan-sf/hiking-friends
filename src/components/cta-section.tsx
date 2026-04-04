@@ -4,6 +4,7 @@ const bookUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
 const contactUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20have%20a%20question%20about%20your%20Hatton%20hiking%20packages.";
+const contactEmail = "info@srilankahikingfriends.com";
 
 export default function CtaSection() {
   return (
@@ -19,6 +20,12 @@ export default function CtaSection() {
           <SectionReveal delay={0.12}>
             <p className="mx-auto mt-3 max-w-2xl text-slate-700">
               Start your hiking journey today. Our guides are ready to show you the best trails in Hatton.
+            </p>
+            <p className="mt-2 text-sm text-slate-700">
+              Email:{" "}
+              <a href={`mailto:${contactEmail}`} className="font-semibold text-amber-700 hover:text-amber-800">
+                {contactEmail}
+              </a>
             </p>
           </SectionReveal>
 
