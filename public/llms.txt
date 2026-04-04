@@ -1,0 +1,15 @@
+# Hiking Friends Sri Lanka
+
+> Guided hiking adventures, tea-country experiences, and local travel stories from Hatton, Sri Lanka.
+
+## Primary Pages
+- Home: /
+- Blog: /blog
+- Tree Hugging Article: /blog/tree-hugging
+- Privacy Policy: /privacy-policy
+
+## About
+Hiking Friends Sri Lanka provides guided hiking and trekking, tea tours, and tuktuk tours around Hatton. The site includes package details, FAQs, image galleries, and blog content focused on local nature experiences.
+
+## Contact
+- WhatsApp booking link is available throughout the site for direct inquiries.

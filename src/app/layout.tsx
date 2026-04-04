@@ -33,8 +33,37 @@ const playfair = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hiking Friends Sri Lanka",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"),
+  title: {
+    default: "Hiking Friends Sri Lanka",
+    template: "%s | Hiking Friends Sri Lanka",
+  },
   description: "Guided hiking adventures across Hatton highlands, Sri Lanka.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Hiking Friends Sri Lanka",
+    description: "Guided hiking adventures across Hatton highlands, Sri Lanka.",
+    url: "/",
+    siteName: "Hiking Friends Sri Lanka",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-desktop.webp",
+        width: 1920,
+        height: 1080,
+        alt: "Hiking Friends Sri Lanka",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hiking Friends Sri Lanka",
+    description: "Guided hiking adventures across Hatton highlands, Sri Lanka.",
+    images: ["/images/hero-desktop.webp"],
+  },
 };
 
 export default function RootLayout({

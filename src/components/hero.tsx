@@ -7,6 +7,7 @@ const navItems = [
   { label: "Gallery", href: "#gallery" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 const bookHikeUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
@@ -22,7 +23,7 @@ export default function Hero() {
         alt="Aerial view of hikers above tea-covered valleys in Hatton, Sri Lanka"
         width={1920}
         height={1080}
-        priority
+        priorit
         className="absolute inset-0 z-0 hidden h-full w-full object-cover lg:block"
       />
       <Image
