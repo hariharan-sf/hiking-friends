@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import MixpanelProvider from "@/components/mixpanel-provider";
 import "./globals.css";
 
 const raleway = localFont({
@@ -95,6 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <MixpanelProvider />
         {children}
       </body>
     </html>
