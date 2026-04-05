@@ -27,6 +27,9 @@ export const primaryNavItems: NavItem[] = [
   { label: "Contact", href: "/#contact" },
   {
     label: "Legal",
-    children: [{ label: "Privacy Policy", href: "/privacy-policy" }],
+    children: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms and Conditions", href: "/terms-and-conditions" },
+    ],
   },
 ];
