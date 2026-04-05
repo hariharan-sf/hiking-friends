@@ -14,7 +14,7 @@ export const packages: PackageItem[] = [
   {
     title: "Hiking and Trekking",
     description: "Iconic Hatton hikes for sunrise views, ridge walks, and scenic trails.",
-    activities: ["Normal morning walk", "5 km relaxation walk"],
+    activities: ["Morning sunrise walk", "Evening sunset walk", "5 km relaxation walk", "Bird watching"],
     details:
       "Perfect for travelers who want guided trail experiences with flexible pace and local route knowledge.",
     inquiryText: "Hi Hiking Friends, I want to book the Hiking and Trekking package in Hatton.",

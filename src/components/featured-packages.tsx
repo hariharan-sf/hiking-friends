@@ -7,8 +7,17 @@ import { packages } from "@/data/packages";
 
 const whatsappUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20view%20all%20hiking%20packages%20in%20Hatton.";
+const featuredPackageTitles = new Set([
+  "Hiking and Trekking",
+  "Pekoe Trail Hike",
+  "Adam's Peak Visit",
+  "Tea Tour",
+  "Tuktuk Tour",
+  "Kayaking",
+]);
 
 export default function FeaturedPackages() {
+  const featuredPackages = packages.filter((item) => featuredPackageTitles.has(item.title));
   const [selectedPackage, setSelectedPackage] = useState<(typeof packages)[number] | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -66,7 +75,7 @@ export default function FeaturedPackages() {
         </SectionReveal>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {packages.map((item, index) => (
+          {featuredPackages.map((item, index) => (
             <SectionReveal key={item.title} delay={0.04 + index * 0.04}>
               <button
                 type="button"
@@ -94,14 +103,22 @@ export default function FeaturedPackages() {
         </div>
 
         <SectionReveal delay={0.14}>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
-          >
-            Get more information
-          </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
+            >
+              Get more information
+            </a>
+            <a
+              href="/packages"
+              className="inline-flex rounded-full border border-amber-300 px-6 py-3 text-sm font-semibold text-amber-800 transition hover:bg-amber-100"
+            >
+              Show More Packages
+            </a>
+          </div>
         </SectionReveal>
       </section>
 

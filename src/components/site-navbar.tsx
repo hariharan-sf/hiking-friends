@@ -152,7 +152,7 @@ export default function SiteNavbar({
           href={bookHikeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-amber-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 lg:px-6"
+          className="hidden rounded-full bg-amber-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 lg:inline-flex lg:px-6"
         >
           Book a Package
         </a>
