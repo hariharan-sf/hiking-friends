@@ -8,7 +8,7 @@ import WhyHikeUs from "@/components/why-hike-us";
 
 export default function Home() {
   return (
-    <main className="bg-white">
+    <main id="main-content" className="bg-white">
       <Hero />
       <FeaturedPackages />
       <WhyHikeUs />

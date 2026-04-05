@@ -1,13 +1,5 @@
 import SiteNavbar from "@/components/site-navbar";
-
-const navItems = [
-  { label: "About Us", href: "/#about-hatton" },
-  { label: "Packages", href: "/#packages" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact", href: "/#contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-];
+import { primaryNavItems } from "@/data/navigation";
 
 const bookHikeUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
@@ -15,9 +7,9 @@ const contactEmail = "info@srilankahikingfriends.com";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-white">
+    <main id="main-content" className="bg-white">
       <header className="px-6 pt-5 md:px-10 lg:px-16 lg:pt-7">
-        <SiteNavbar navItems={navItems} bookHikeUrl={bookHikeUrl} theme="light" />
+        <SiteNavbar navItems={primaryNavItems} bookHikeUrl={bookHikeUrl} theme="light" />
       </header>
 
       <div className="px-6 py-16 md:px-10 lg:px-16">

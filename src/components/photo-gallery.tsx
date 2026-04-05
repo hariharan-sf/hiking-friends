@@ -24,13 +24,41 @@ const galleryItems: GalleryItem[] = [
     src: "/images/photo-gallery/adams-peak.webp",
     alt: "Sunrise landscape at Adam's Peak",
   },
+  // {
+  //   title: "Adisham Bungalow",
+  //   description:
+  //     "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
+  //   src: "/images/photo-gallery/adisham-bungalow.webp",
+  //   alt: "Adisham Bungalow and surrounding gardens",
+  // },
   {
-    title: "Adisham Bungalow",
+    title: "Devon Falls",
     description:
-      "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
-    src: "/images/photo-gallery/adisham-bungalow.webp",
-    alt: "Adisham Bungalow and surrounding gardens",
+      "Set amid rolling tea estates, Devon Falls is a graceful natural landmark celebrated for misty beauty and scenic hill-country views.",
+    src: "/images/photo-gallery/devon falls.webp",
+    alt: "Devon Falls flowing through tea country",
   },
+  {
+    title: "Laxapana Falls",
+    description:
+      "One of Sri Lanka's most striking waterfalls, with dramatic cascades, lush surroundings, and serene highland appeal.",
+    src: "/images/photo-gallery/laxpana.webp",
+    alt: "Laxapana Falls in the hill country",
+  },
+  // {
+  //   title: "Adam's Peak",
+  //   description:
+  //     "A world-renowned mountain sanctuary near Hatton, offering spiritual heritage, cool highland air, and unforgettable sunrise views.",
+  //   src: "/images/photo-gallery/adams-peak.webp",
+  //   alt: "Sunrise landscape at Adam's Peak",
+  // },
+  // {
+  //   title: "Adisham Bungalow",
+  //   description:
+  //     "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
+  //   src: "/images/photo-gallery/adisham-bungalow.webp",
+  //   alt: "Adisham Bungalow and surrounding gardens",
+  // },
   {
     title: "Devon Falls",
     description:
@@ -52,41 +80,13 @@ const galleryItems: GalleryItem[] = [
     src: "/images/photo-gallery/adams-peak.webp",
     alt: "Sunrise landscape at Adam's Peak",
   },
-  {
-    title: "Adisham Bungalow",
-    description:
-      "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
-    src: "/images/photo-gallery/adisham-bungalow.webp",
-    alt: "Adisham Bungalow and surrounding gardens",
-  },
-  {
-    title: "Devon Falls",
-    description:
-      "Set amid rolling tea estates, Devon Falls is a graceful natural landmark celebrated for misty beauty and scenic hill-country views.",
-    src: "/images/photo-gallery/devon falls.webp",
-    alt: "Devon Falls flowing through tea country",
-  },
-  {
-    title: "Laxapana Falls",
-    description:
-      "One of Sri Lanka's most striking waterfalls, with dramatic cascades, lush surroundings, and serene highland appeal.",
-    src: "/images/photo-gallery/laxpana.webp",
-    alt: "Laxapana Falls in the hill country",
-  },
-  {
-    title: "Adam's Peak",
-    description:
-      "A world-renowned mountain sanctuary near Hatton, offering spiritual heritage, cool highland air, and unforgettable sunrise views.",
-    src: "/images/photo-gallery/adams-peak.webp",
-    alt: "Sunrise landscape at Adam's Peak",
-  },
-  {
-    title: "Adisham Bungalow",
-    description:
-      "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
-    src: "/images/photo-gallery/adisham-bungalow.webp",
-    alt: "Adisham Bungalow and surrounding gardens",
-  },
+  // {
+  //   title: "Adisham Bungalow",
+  //   description:
+  //     "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
+  //   src: "/images/photo-gallery/adisham-bungalow.webp",
+  //   alt: "Adisham Bungalow and surrounding gardens",
+  // },
   {
     title: "Devon Falls",
     description:
@@ -108,13 +108,13 @@ const galleryItems: GalleryItem[] = [
     src: "/images/photo-gallery/adams-peak.webp",
     alt: "Sunrise landscape at Adam's Peak",
   },
-  {
-    title: "Adisham Bungalow",
-    description:
-      "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
-    src: "/images/photo-gallery/adisham-bungalow.webp",
-    alt: "Adisham Bungalow and surrounding gardens",
-  },
+  // {
+  //   title: "Adisham Bungalow",
+  //   description:
+  //     "A timeless colonial retreat in the hill country, known for elegant architecture, peaceful gardens, and a heritage atmosphere.",
+  //   src: "/images/photo-gallery/adisham-bungalow.webp",
+  //   alt: "Adisham Bungalow and surrounding gardens",
+  // },
   {
     title: "Devon Falls",
     description:
@@ -218,13 +218,13 @@ export default function PhotoGallery() {
       : galleryItems.map((item, idx) => ({ ...item, originalIndex: idx, uid: `${item.title}-${idx}` }));
 
   return (
-    <section id="gallery" className="container py-16 lg:py-24">
+    <section id="gallery" aria-labelledby="gallery-heading" className="container py-16 lg:py-24">
       <div className="mx-auto max-w-3xl text-center">
         <SectionReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Photo Gallery</p>
         </SectionReveal>
         <SectionReveal delay={0.04}>
-          <h2 className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
+          <h2 id="gallery-heading" className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
             See What Your Hatton Adventure Could Look Like
           </h2>
         </SectionReveal>

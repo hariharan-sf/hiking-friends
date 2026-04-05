@@ -21,13 +21,13 @@ const reasons = [
 
 export default function WhyHikeUs() {
   return (
-    <section className="bg-amber-50/60 py-16 lg:py-24">
+    <section aria-labelledby="why-hike-us-heading" className="bg-amber-50/60 py-16 lg:py-24">
       <div className="container">
         <SectionReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Why Hike With Us</p>
         </SectionReveal>
         <SectionReveal delay={0.04}>
-          <h2 className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
+          <h2 id="why-hike-us-heading" className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
             Built for Comfortable, Scenic, and Safe Hiking
           </h2>
         </SectionReveal>

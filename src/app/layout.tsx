@@ -73,7 +73,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${playfair.variable} antialiased scroll-smooth`}>{children}</body>
+      <body className={`${raleway.variable} ${playfair.variable} antialiased scroll-smooth`}>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

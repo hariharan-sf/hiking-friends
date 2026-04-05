@@ -3,14 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionReveal from "@/components/section-reveal";
 import SiteNavbar from "@/components/site-navbar";
-
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Blog", href: "/blog" },
-  { label: "Packages", href: "/#packages" },
-  { label: "Gallery", href: "/#gallery" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-];
+import { primaryNavItems } from "@/data/navigation";
 
 const bookHikeUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
@@ -48,14 +41,14 @@ export const metadata: Metadata = {
 
 export default function TreeHuggingBlogPage() {
   return (
-    <main className="bg-white">
+    <main id="main-content" className="bg-white">
       <section className="relative overflow-hidden bg-emerald-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.18),transparent_38%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(16,185,129,0.24),transparent_40%)]" />
 
         <div className="relative z-10 px-6 pt-5 md:px-10 lg:px-16 lg:pt-7">
           <SectionReveal>
-            <SiteNavbar navItems={navItems} bookHikeUrl={bookHikeUrl} theme="dark" />
+            <SiteNavbar navItems={primaryNavItems} bookHikeUrl={bookHikeUrl} theme="dark" />
           </SectionReveal>
         </div>
 

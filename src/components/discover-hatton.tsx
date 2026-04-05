@@ -5,14 +5,14 @@ const whatsappUrl =
 
 export default function DiscoverHatton() {
   return (
-    <section id="about-hatton" className="container py-16 lg:py-24">
+    <section id="about-hatton" aria-labelledby="about-hatton-heading" className="container py-16 lg:py-24">
       <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
         <div>
           <SectionReveal>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Discover Hatton</p>
           </SectionReveal>
           <SectionReveal delay={0.04}>
-            <h2 className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
+            <h2 id="about-hatton-heading" className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
               Sri Lanka&apos;s Most Atmospheric Hiking Region
             </h2>
           </SectionReveal>

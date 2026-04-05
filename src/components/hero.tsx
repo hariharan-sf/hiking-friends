@@ -1,14 +1,7 @@
 import Image from "next/image";
 import SectionReveal from "@/components/section-reveal";
-
-const navItems = [
-  { label: "About Us", href: "#about-hatton" },
-  { label: "Packages", href: "#packages" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-];
+import SiteNavbar from "@/components/site-navbar";
+import { primaryNavItems } from "@/data/navigation";
 const bookHikeUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
 
@@ -42,37 +35,7 @@ export default function Hero() {
         <header className="pt-5 lg:pt-7">
           <div className="container">
             <SectionReveal>
-              <div className="rounded-full border border-white/35 bg-white/20 px-4 py-3 backdrop-blur-md lg:px-6">
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src="/images/logo-shf.png"
-                    alt="Hiking Friends Sri Lanka logo"
-                    width={34}
-                    height={34}
-                    className="h-12 w-12 rounded-full object-cover lg:h-9 lg:w-9"
-                  />
-                  <span className="font-luxury text-lg tracking-wide lg:text-xl lg:block hidden">Hiking Friends</span>
-                </div>
-
-                <nav className="hidden items-center gap-7 text-sm text-white/95 lg:flex">
-                  {navItems.map((item) => (
-                    <a key={item.label} href={item.href} className="transition hover:text-amber-200">
-                      {item.label}
-                    </a>
-                  ))}
-                </nav>
-
-                <a
-                  href={bookHikeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-amber-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 lg:px-6"
-                >
-                  Book a Hike
-                </a>
-              </div>
-              </div>
+              <SiteNavbar navItems={primaryNavItems} bookHikeUrl={bookHikeUrl} theme="dark" />
             </SectionReveal>
           </div>
         </header>
@@ -85,13 +48,13 @@ export default function Hero() {
               </SectionReveal>
               <SectionReveal delay={0.12}>
                 <h1 className="font-luxury text-4xl leading-[1.1] text-white sm:text-5xl">
-                  Hike Above the Misty Tea Valleys of Hatton
+                  Explore the Best Experiences in Hatton
                 </h1>
               </SectionReveal>
               <SectionReveal delay={0.16}>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-white/95 sm:text-base">
-                  Sunrise climbs, hidden waterfalls, and ridge trails around Castlereagh Reservoir. Discover Hatton with local
-                  guides who know every turn.
+                  Hiking, tea tours, Adam&apos;s Peak visits, wellness sessions, water adventures, and local sightseeing with
+                  trusted local guides.
                 </p>
               </SectionReveal>
             </div>
@@ -101,7 +64,7 @@ export default function Hero() {
                 <div className="max-w-2xl">
                   <p className="mb-4 text-sm uppercase tracking-[0.34em] text-amber-200">Hatton, Sri Lanka</p>
                   <h1 className="font-luxury text-6xl leading-[1.05] text-white xl:text-7xl">
-                    Unforgettable Hiking Moments in Hatton
+                    Unforgettable Hatton Experiences
                   </h1>
                 </div>
               </SectionReveal>
@@ -109,8 +72,8 @@ export default function Hero() {
               <SectionReveal delay={0.14}>
                 <div className="ml-auto max-w-md">
                   <p className="text-xl leading-relaxed text-white/95">
-                    Trek through tea estates, cloud-kissed ridgelines, and quiet lakeside paths. Every Hatton trail is a story
-                    carved into the highlands.
+                    From trekking trails to tea-country tours and mindful wellness sessions, discover Hatton with curated
+                    packages for every type of traveler.
                   </p>
                 </div>
               </SectionReveal>

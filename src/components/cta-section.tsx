@@ -8,14 +8,16 @@ const contactEmail = "info@srilankahikingfriends.com";
 
 export default function CtaSection() {
   return (
-    <section id="contact" className="container py-16 lg:py-24">
+    <section id="contact" aria-labelledby="contact-heading" className="container py-16 lg:py-24">
       <SectionReveal>
         <div className="rounded-3xl bg-amber-50 px-6 py-10 text-center text-slate-900 ring-1 ring-amber-100 sm:px-10">
           <SectionReveal delay={0.04}>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Ready to Start?</p>
           </SectionReveal>
           <SectionReveal delay={0.08}>
-            <h2 className="font-luxury mt-3 text-3xl sm:text-4xl">Ready for Your Hatton Adventure</h2>
+            <h2 id="contact-heading" className="font-luxury mt-3 text-3xl sm:text-4xl">
+              Ready for Your Hatton Adventure
+            </h2>
           </SectionReveal>
           <SectionReveal delay={0.12}>
             <p className="mx-auto mt-3 max-w-2xl text-slate-700">
@@ -37,7 +39,7 @@ export default function CtaSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
               >
-                Book a Hike
+                Book a Package
               </a>
             </SectionReveal>
             <SectionReveal delay={0.2}>

@@ -1,68 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SectionReveal from "@/components/section-reveal";
-
-const packages = [
-  {
-    title: "Hiking and Trekking",
-    description: "Iconic Hatton hikes for sunrise views, ridge walks, and scenic trails.",
-    activities: ["Pekoe trail", "Adam's Peak visit", "Morning walk"],
-    details:
-      "Perfect for travelers who want guided trail experiences with flexible pace and local route knowledge.",
-    inquiryText: "Hi Hiking Friends, I want to book the Hiking and Trekking package in Hatton.",
-    imageSrc: "/images/trekking/trekking.webp",
-    imageAlt: "Group hiking through tea estate trails in Hatton",
-    gallery: [
-      "/images/trekking/trekking.webp",
-      "/images/trekking/trekking-2.webp",
-      "/images/trekking/trekking-3.webp",
-    ],
-  },
-  {
-    title: "Tea Tour",
-    description: "Hands-on tea culture experience from field to factory in Hatton.",
-    activities: [
-      "Tea estate tour - Walk amongst the tea estate",
-      "Tea plucking experience",
-      "Tea factory visit",
-      "Local tea community meet (pluckers)",
-    ],
-    details:
-      "Ideal for visitors who want to understand Ceylon tea production and connect with local tea-growing communities.",
-    inquiryText: "Hi Hiking Friends, I want to book the Tea Tour package in Hatton.",
-    imageSrc: "/images/tea-tour/tea-plucking-1.webp",
-    imageAlt: "Tea field walk with local tea community in Hatton",
-    gallery: [
-      "/images/tea-tour/tea-plucking-1.webp",
-      "/images/tea-tour/tea-estate-walk.webp",
-      "/images/tea-tour/tea-estate-walk-2.webp",
-      "/images/tea-tour/tea-tour.webp",
-    ],
-  },
-  {
-    title: "Tuktuk Tour",
-    description: "A scenic ride through tea-country landmarks, waterfalls, and local life.",
-    activities: [
-      "Mlesna Tea Castle",
-      "St. Clair Waterfall",
-      "Gartmore Waterfall",
-      "Devon Waterfall",
-      "Local market visit",
-    ],
-    details:
-      "Great for relaxed exploration with multiple stop points, scenic viewpoints, and easy access for all ages.",
-    inquiryText: "Hi Hiking Friends, I want to book the Tuktuk Tour package in Hatton.",
-    imageSrc: "/images/photo-gallery/laxpana.webp",
-    imageAlt: "Scenic waterfall stop during a tuktuk tour in Hatton",
-    gallery: [
-      "/images/photo-gallery/laxpana.webp",
-      "/images/photo-gallery/adisham-bungalow.webp",
-      "/images/photo-gallery/adams-peak.webp",
-    ],
-  },
-];
+import { packages } from "@/data/packages";
 
 const whatsappUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20view%20all%20hiking%20packages%20in%20Hatton.";
@@ -70,6 +11,8 @@ const whatsappUrl =
 export default function FeaturedPackages() {
   const [selectedPackage, setSelectedPackage] = useState<(typeof packages)[number] | null>(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previouslyFocusedElementRef = useRef<HTMLElement | null>(null);
   const selectedPackageWhatsappUrl = selectedPackage
     ? `https://wa.me/94774989745?text=${encodeURIComponent(selectedPackage.inquiryText)}`
     : whatsappUrl;
@@ -79,6 +22,9 @@ export default function FeaturedPackages() {
       return;
     }
 
+    previouslyFocusedElementRef.current = document.activeElement as HTMLElement;
+    closeButtonRef.current?.focus();
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setSelectedPackage(null);
@@ -86,7 +32,10 @@ export default function FeaturedPackages() {
     };
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      previouslyFocusedElementRef.current?.focus();
+    };
   }, [selectedPackage]);
 
   useEffect(() => {
@@ -104,12 +53,14 @@ export default function FeaturedPackages() {
 
   return (
     <>
-      <section id="packages" className="container py-16 lg:py-24">
+      <section id="packages" aria-labelledby="packages-heading" className="container py-16 lg:py-24">
         <SectionReveal>
           <div className="mb-10 flex items-end justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-700">Featured Packages</p>
-              <h2 className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">Explore Hatton With Expert Local Guides</h2>
+              <h2 id="packages-heading" className="font-luxury mt-3 text-3xl text-slate-900 sm:text-4xl">
+                Explore Hatton With Expert Local Guides
+              </h2>
             </div>
           </div>
         </SectionReveal>
@@ -160,26 +111,33 @@ export default function FeaturedPackages() {
           onClick={() => setSelectedPackage(null)}
         >
           <div
-            className="max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl md:h-[50vh] md:max-h-[92vh]"
+            className="max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl md:h-[60vh] md:max-h-[92vh]"
             onClick={(event) => event.stopPropagation()}
             role="dialog"
             aria-modal="true"
-            aria-label={`${selectedPackage.title} details`}
+            aria-labelledby="package-modal-title"
+            aria-describedby="package-modal-details"
           >
-            <div className="grid max-h-[90vh] md:h-[50vh] md:max-h-[92vh] md:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)]">
+            <div className="grid max-h-[90vh] md:h-[60vh] md:max-h-[92vh] md:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)]">
               <div className="overflow-y-auto p-5 sm:p-7 justify-center items-start flex flex-col relative">
                 <button
+                  ref={closeButtonRef}
                   type="button"
                   onClick={() => setSelectedPackage(null)}
                   className="rounded-full absolute top-5 left-5 border mb-5 border-slate-200 px-3 py-1 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+                  aria-label="Close package details modal"
                 >
                   Close
                 </button>
                 <div className="mb-4 flex items-start justify-between w-full gap-4">
-                  <h3 className="font-luxury text-3xl text-slate-900">{selectedPackage.title}</h3>
+                  <h3 id="package-modal-title" className="font-luxury text-3xl text-slate-900">
+                    {selectedPackage.title}
+                  </h3>
                 </div>
 
-                <p className="text-sm leading-relaxed text-slate-600">{selectedPackage.details}</p>
+                <p id="package-modal-details" className="text-sm leading-relaxed text-slate-600">
+                  {selectedPackage.details}
+                </p>
 
                 <div className="mt-6">
                   <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-800">Included Activities</h4>
@@ -189,6 +147,20 @@ export default function FeaturedPackages() {
                     ))}
                   </ul>
                 </div>
+
+                {selectedPackage.benefits?.length ? (
+                  <div className="mt-6">
+                    <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-800">Benefits</h4>
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+                      {selectedPackage.benefits.map((benefit) => (
+                        <li key={benefit}>{benefit}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                <span className="text-sm text-slate-600 pt-4 block">For more information, please contact us via WhatsApp.</span>
+
 
                 <a
                   href={selectedPackageWhatsappUrl}

@@ -5,6 +5,7 @@
 
 ## Primary Pages
 - Home: https://www.srilankahikingfriends.com/
+- Packages: https://www.srilankahikingfriends.com/packages
 - Blog: https://www.srilankahikingfriends.com/blog
 - Tree Hugging Article: https://www.srilankahikingfriends.com/blog/tree-hugging
 - Privacy Policy: https://www.srilankahikingfriends.com/privacy-policy
