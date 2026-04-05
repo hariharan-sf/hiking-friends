@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import mixpanel from "mixpanel-browser";
 
 const MIXPANEL_TOKEN =
@@ -10,12 +10,11 @@ const MIXPANEL_TOKEN =
 export default function MixpanelProvider() {
   const hasInitializedRef = useRef(false);
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const currentUrl = useMemo(() => {
-    const query = searchParams.toString();
+    const query = typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
     return query ? `${pathname}?${query}` : pathname;
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   useEffect(() => {
     if (!MIXPANEL_TOKEN || hasInitializedRef.current) {
