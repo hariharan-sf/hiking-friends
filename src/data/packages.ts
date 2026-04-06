@@ -33,12 +33,13 @@ export const packages: PackageItem[] = [
     details:
       "Ideal for travelers who want a dedicated Pekoe Trail adventure with local guidance and flexible pacing.",
     inquiryText: "Hi Hiking Friends, I want to book the Pekoe Trail Hike package in Hatton.",
-    imageSrc: "/images/trekking/trekking.webp",
+    imageSrc: "/images/pekoe-trail/pekoe-trail.webp",
     imageAlt: "Hikers walking along the Pekoe Trail in Hatton",
     gallery: [
-      "/images/trekking/trekking.webp",
+      "/images/pekoe-trail/pekoe-trail.webp",
       "/images/trekking/trekking-2.webp",
       "/images/trekking/trekking-3.webp",
+      "/images/trekking/trekking.webp",
     ],
   },
   {
@@ -50,7 +51,7 @@ export const packages: PackageItem[] = [
     inquiryText: "Hi Hiking Friends, I want to book the Adam's Peak Visit package in Hatton.",
     imageSrc: "/images/photo-gallery/adams-peak.webp",
     imageAlt: "View from Adam's Peak in Sri Lanka",
-    gallery: ["/images/photo-gallery/adams-peak.webp", "/images/trekking/trekking.webp"],
+    gallery: ["/images/photo-gallery/adams-peak.webp"],
   },
   {
     title: "Tea Tour",
@@ -67,10 +68,11 @@ export const packages: PackageItem[] = [
     imageSrc: "/images/tea-tour/tea-plucking-1.webp",
     imageAlt: "Tea field walk with local tea community in Hatton",
     gallery: [
-      "/images/tea-tour/tea-plucking-1.webp",
       "/images/tea-tour/tea-estate-walk.webp",
+      "/images/tea-tour/tea-factory.webp",
       "/images/tea-tour/tea-estate-walk-2.webp",
       "/images/tea-tour/tea-tour.webp",
+      "/images/tea-tour/tea-plucking-1.webp",
     ],
   },
   {
@@ -86,9 +88,9 @@ export const packages: PackageItem[] = [
     details:
       "Great for relaxed exploration with multiple stop points, scenic viewpoints, and easy access for all ages.",
     inquiryText: "Hi Hiking Friends, I want to book the Tuktuk Tour package in Hatton.",
-    imageSrc: "/images/photo-gallery/laxpana.webp",
+    imageSrc: "/images/photo-gallery/tuktuk-tour.webp",
     imageAlt: "Scenic waterfall stop during a tuktuk tour in Hatton",
-    gallery: ["/images/photo-gallery/laxpana.webp", "/images/photo-gallery/adams-peak.webp"],
+    gallery: ["/images/photo-gallery/gardmore-falls.webp","/images/photo-gallery/stclaire-waterfall.webp", "/images/photo-gallery/Mlesna-tea.webp"],
   },
   {
     title: "Yoga and Meditation",
@@ -174,9 +176,9 @@ export const packages: PackageItem[] = [
     details:
       "Enjoy a relaxing kayaking experience in the beautiful Castlereagh Reservoir. Perfect for both beginners and experienced adventurers, this activity offers calm waters, breathtaking scenery, and a refreshing outdoor escape. Available during morning and evening sessions for the best views and weather.",
     inquiryText: "Hi Hiking Friends, I want to book the Kayaking experience in Hatton.",
-    imageSrc: "/images/water-rafting/water-rafting-1.webp",
+    imageSrc: "/images/photo-gallery/kayaking.webp",
     imageAlt: "Kayaking in Castlereagh Reservoir",
-    gallery: ["/images/water-rafting/water-rafting-1.webp", "/images/water-rafting/water-rafting-2.webp", "/images/water-rafting/water-rafting-3.webp"],
+    gallery: ["/images/photo-gallery/kayaking.webp"],
   },
   {
     title: "Temple Visit",
