@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import mixpanel from "mixpanel-browser";
+import { markMixpanelReady, trackEvent } from "@/lib/mixpanel";
 
-const MIXPANEL_TOKEN =
-  process.env.NEXT_PUBLIC_MIXPANEL_TOKEN ?? process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_ID ?? "4009909";
+const MIXPANEL_TOKEN = "4009909";
 
 function getClientContext(pathname: string) {
   if (typeof window === "undefined") {
@@ -45,13 +45,16 @@ export default function MixpanelProvider() {
 
   useEffect(() => {
     if (!MIXPANEL_TOKEN || hasInitializedRef.current) {
+      if (!MIXPANEL_TOKEN && process.env.NODE_ENV !== "production") {
+        console.warn("Mixpanel token is missing. Set NEXT_PUBLIC_MIXPANEL_TOKEN.");
+      }
       return;
     }
 
     mixpanel.init(MIXPANEL_TOKEN, {
       debug: process.env.NODE_ENV !== "production",
       persistence: "localStorage",
-      track_pageview: true,
+      track_pageview: "url-with-path-and-query-string",
       record_sessions_percent: 100,
       record_mask_all_text: false,
       record_mask_all_inputs: false,
@@ -64,6 +67,7 @@ export default function MixpanelProvider() {
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown",
     });
 
+    markMixpanelReady();
     mixpanel.start_session_recording();
     hasInitializedRef.current = true;
   }, []);
@@ -95,9 +99,14 @@ export default function MixpanelProvider() {
           region_ip: data?.region ?? "unknown",
           timezone_ip: data?.timezone ?? "unknown",
         };
+        const ipProps = typeof data?.ip === "string" && data.ip.length > 0 ? { ip: data.ip } : {};
+        const enrichedGeoProps = {
+          ...geoProps,
+          ...ipProps,
+        };
 
-        mixpanel.register(geoProps);
-        mixpanel.track("Geo Context Loaded", geoProps);
+        mixpanel.register(enrichedGeoProps);
+        trackEvent("Geo Context Loaded", enrichedGeoProps);
       } catch {
         // Intentionally ignore; geo enrichment is best-effort.
       } finally {
@@ -113,11 +122,11 @@ export default function MixpanelProvider() {
   }, []);
 
   useEffect(() => {
-    if (!MIXPANEL_TOKEN || !hasInitializedRef.current) {
+    if (!MIXPANEL_TOKEN) {
       return;
     }
 
-    mixpanel.track("Page Viewed", getClientContext(pathname));
+    trackEvent("Page Viewed", getClientContext(pathname));
   }, [pathname]);
 
   return null;
