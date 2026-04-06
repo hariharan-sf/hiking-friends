@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import SectionReveal from "@/components/section-reveal";
 import SiteNavbar from "@/components/site-navbar";
+import BlogPageTracker from "@/components/blog-page-tracker";
+import TrackedLink from "@/components/tracked-link";
 import { primaryNavItems } from "@/data/navigation";
 
 const bookHikeUrl =
@@ -42,6 +43,11 @@ export const metadata: Metadata = {
 export default function TreeHuggingBlogPage() {
   return (
     <main id="main-content" className="bg-white">
+      <BlogPageTracker
+        pageType="article"
+        slug="tree-hugging"
+        title="Why Tree Hugging Should Be Part of Your Hiking Experience"
+      />
       <section className="relative overflow-hidden bg-emerald-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.18),transparent_38%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(16,185,129,0.24),transparent_40%)]" />
@@ -218,20 +224,31 @@ export default function TreeHuggingBlogPage() {
                 outdoor practices, and relaxing routes for both beginner and experienced hikers.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a
+                <TrackedLink
                   href={bookHikeUrl}
+                  external
                   target="_blank"
                   rel="noopener noreferrer"
+                  eventName="CTA Clicked"
+                  eventProps={{
+                    cta_name: "book_hike_from_blog",
+                    cta_location: "blog_tree_hugging",
+                  }}
                   className="inline-flex rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
                 >
                   Book a Hike
-                </a>
-                <Link
+                </TrackedLink>
+                <TrackedLink
                   href="/blog"
+                  eventName="CTA Clicked"
+                  eventProps={{
+                    cta_name: "back_to_blog",
+                    cta_location: "blog_tree_hugging",
+                  }}
                   className="inline-flex rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
                 >
                   Back to Blog
-                </Link>
+                </TrackedLink>
               </div>
             </div>
           </SectionReveal>

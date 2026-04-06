@@ -21,6 +21,7 @@ export const packages: PackageItem[] = [
     imageSrc: "/images/trekking/trekking.webp",
     imageAlt: "Group hiking through tea estate trails in Hatton",
     gallery: [
+      "/images/photo-gallery/sunrise-viewing.webp",
       "/images/trekking/trekking.webp",
       "/images/trekking/trekking-2.webp",
       "/images/trekking/trekking-3.webp",
@@ -39,7 +40,6 @@ export const packages: PackageItem[] = [
       "/images/pekoe-trail/pekoe-trail.webp",
       "/images/trekking/trekking-2.webp",
       "/images/trekking/trekking-3.webp",
-      "/images/trekking/trekking.webp",
     ],
   },
   {
@@ -90,7 +90,7 @@ export const packages: PackageItem[] = [
     inquiryText: "Hi Hiking Friends, I want to book the Tuktuk Tour package in Hatton.",
     imageSrc: "/images/photo-gallery/tuktuk-tour.webp",
     imageAlt: "Scenic waterfall stop during a tuktuk tour in Hatton",
-    gallery: ["/images/photo-gallery/gardmore-falls.webp","/images/photo-gallery/stclaire-waterfall.webp", "/images/photo-gallery/Mlesna-tea.webp"],
+    gallery: ["/images/photo-gallery/gardmore-falls.webp","/images/photo-gallery/stclaire-waterfall.webp", "/images/photo-gallery/Mlesna-tea.webp", "/images/photo-gallery/devon falls.webp"],
   },
   {
     title: "Yoga and Meditation",
@@ -210,6 +210,7 @@ export const packages: PackageItem[] = [
     imageSrc: "/images/camping/camping-1.webp",
     imageAlt: "Camping experience at Haritha Kanda and Gartmore Waterfall",
     gallery: [
+      "/images/photo-gallery/sunrise-viewing.webp",
       "/images/camping/camping-1.webp",
       "/images/camping/camping-2.webp",
       "/images/camping/camping-3.webp"

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { NavItem } from "@/data/navigation";
+import { trackEvent } from "@/lib/mixpanel";
 
 type SiteNavbarProps = {
   navItems: NavItem[];
@@ -152,6 +153,12 @@ export default function SiteNavbar({
           href={bookHikeUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("CTA Clicked", {
+              cta_name: "navbar_book_package",
+              cta_location: "navbar",
+            })
+          }
           className="hidden rounded-full bg-amber-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 lg:inline-flex lg:px-6"
         >
           Book a Package

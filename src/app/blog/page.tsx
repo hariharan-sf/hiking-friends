@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import SectionReveal from "@/components/section-reveal";
 import SiteNavbar from "@/components/site-navbar";
+import BlogPageTracker from "@/components/blog-page-tracker";
+import TrackedLink from "@/components/tracked-link";
 import { primaryNavItems } from "@/data/navigation";
 
 const posts = [
+  {
+    title: "St. Clair's Falls: Sri Lanka's Widest Waterfall You Must See",
+    description:
+      "A traveler-focused guide to visiting St. Clair's Falls in Hatton, with timing tips and a scenic Tuktuk tour route.",
+    href: "/blog/st-claire-waterfall",
+    image: "/images/photo-gallery/stclaire-waterfall.webp",
+    tag: "Waterfall Travel",
+  },
   {
     title: "The Joy of Tree Hugging in Hatton",
     description:
@@ -50,6 +59,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main id="main-content" className="bg-white">
+      <BlogPageTracker pageType="listing" slug="blog-index" title="Hiking Friends Blog" />
       <section className="relative overflow-hidden bg-emerald-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.18),transparent_38%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(16,185,129,0.24),transparent_40%)]" />
@@ -95,12 +105,18 @@ export default function BlogPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">{post.tag}</p>
                   <h3 className="font-luxury mt-3 text-2xl text-slate-900">{post.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{post.description}</p>
-                  <Link
+                  <TrackedLink
                     href={post.href}
+                    eventName="CTA Clicked"
+                    eventProps={{
+                      cta_name: "read_blog_article",
+                      cta_location: "blog_listing",
+                      article_title: post.title,
+                    }}
                     className="mt-5 inline-flex rounded-full bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-700"
                   >
                     Read Article
-                  </Link>
+                  </TrackedLink>
                 </div>
               </article>
             </SectionReveal>

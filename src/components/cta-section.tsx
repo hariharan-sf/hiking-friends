@@ -1,4 +1,7 @@
+"use client";
+
 import SectionReveal from "@/components/section-reveal";
+import TrackedLink from "@/components/tracked-link";
 
 const bookUrl =
   "https://wa.me/94774989745?text=Hi%20Hiking%20Friends%2C%20I%20want%20to%20book%20a%20Hatton%20hike.";
@@ -33,24 +36,36 @@ export default function CtaSection() {
 
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
             <SectionReveal delay={0.16}>
-              <a
+              <TrackedLink
                 href={bookUrl}
+                external
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName="CTA Clicked"
+                eventProps={{
+                  cta_name: "contact_book_package",
+                  cta_location: "cta_section",
+                }}
                 className="inline-flex items-center justify-center rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
               >
                 Book a Package
-              </a>
+              </TrackedLink>
             </SectionReveal>
             <SectionReveal delay={0.2}>
-              <a
+              <TrackedLink
                 href={contactUrl}
+                external
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName="CTA Clicked"
+                eventProps={{
+                  cta_name: "contact_whatsapp",
+                  cta_location: "cta_section",
+                }}
                 className="inline-flex items-center justify-center rounded-full border border-amber-300 px-6 py-3 text-sm font-semibold text-amber-800 transition hover:bg-amber-100"
               >
                 Contact Us on WhatsApp
-              </a>
+              </TrackedLink>
             </SectionReveal>
           </div>
         </div>
