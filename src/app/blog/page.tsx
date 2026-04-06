@@ -97,28 +97,28 @@ export default function BlogPage() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {posts.map((post, index) => (
             <SectionReveal key={post.title} delay={0.06 + index * 0.06}>
-              <article className="h-full overflow-hidden rounded-2xl border border-amber-100 bg-white shadow-sm transition hover:shadow-md">
-                <div className="relative aspect-[4/3]">
-                  <Image src={post.image} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-                </div>
-                <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">{post.tag}</p>
-                  <h3 className="font-luxury mt-3 text-2xl text-slate-900">{post.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{post.description}</p>
-                  <TrackedLink
-                    href={post.href}
-                    eventName="CTA Clicked"
-                    eventProps={{
-                      cta_name: "read_blog_article",
-                      cta_location: "blog_listing",
-                      article_title: post.title,
-                    }}
-                    className="mt-5 inline-flex rounded-full bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-700"
-                  >
-                    Read Article
-                  </TrackedLink>
-                </div>
-              </article>
+              <TrackedLink
+                href={post.href}
+                eventName="CTA Clicked"
+                eventProps={{
+                  cta_name: "open_blog_article_card",
+                  cta_location: "blog_listing",
+                  article_title: post.title,
+                }}
+                className="block h-full overflow-hidden rounded-2xl border border-amber-100 bg-white shadow-sm transition hover:shadow-md"
+              >
+                <article>
+                  <div className="relative aspect-[4/3]">
+                    <Image src={post.image} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">{post.tag}</p>
+                    <h3 className="font-luxury mt-3 text-2xl text-slate-900">{post.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{post.description}</p>
+                    <p className="mt-5 text-sm font-semibold text-amber-700">Read Article</p>
+                  </div>
+                </article>
+              </TrackedLink>
             </SectionReveal>
           ))}
         </div>

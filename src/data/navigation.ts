@@ -22,6 +22,7 @@ export const primaryNavItems: NavItem[] = [
     children: [
       { label: "Blog", href: "/blog" },
       { label: "Tree Hugging", href: "/blog/tree-hugging" },
+      { label: "St. Clair's Falls", href: "/blog/st-claire-waterfall" },
     ],
   },
   { label: "Contact", href: "/#contact" },
