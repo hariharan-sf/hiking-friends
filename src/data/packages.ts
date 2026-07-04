@@ -124,9 +124,9 @@ export const packages: PackageItem[] = [
     ],
     details: "Great for relaxed exploration with multiple stop points, scenic viewpoints, and easy access for all ages.",
     inquiryText: "Hi Hiking Friends, I want to book the Nuwara Eliya Tour package in Hatton.",
-    imageSrc: "/images/nuwara-eliya/nuwara-eliya-1.webp",
+    imageSrc: "/images/nuwaraeliya-tour.png",
     imageAlt: "Nuwara Eliya town and its surrounding attractions",
-    gallery: ["/images/nuwara-eliya/nuwara-eliya-1.webp", "/images/nuwara-eliya/nuwara-eliya-2.webp", "/images/nuwara-eliya/nuwara-eliya-3.webp"],
+    gallery: ["/images/nuwaraeliya-tour.png", "/images/nuwara-eliya/nuwara-eliya-2.webp", "/images/nuwara-eliya/nuwara-eliya-3.webp"],
   },
   {
     title: "Water rafting",
@@ -139,9 +139,9 @@ export const packages: PackageItem[] = [
     ],
     details: "Great for relaxed exploration with multiple stop points, scenic viewpoints, and easy access for all ages.",
     inquiryText: "Hi Hiking Friends, I want to book the Water rafting package in Hatton.",
-    imageSrc: "/images/water-rafting/water-rafting-1.webp",
+    imageSrc: "/images/kitulgala-rafting.png",
     imageAlt: "Water rafting in Kitulgala",
-    gallery: ["/images/water-rafting/water-rafting-1.webp", "/images/water-rafting/water-rafting-2.webp", "/images/water-rafting/water-rafting-3.webp"],
+    gallery: ["/images/kitulgala-rafting.png", "/images/water-rafting/water-rafting-2.webp", "/images/water-rafting/water-rafting-3.webp"],
   },
   {
     title: "Transport",
@@ -156,10 +156,10 @@ export const packages: PackageItem[] = [
     details:
       "We provide comfortable and reliable transportation services from the airport to Hatton and vice versa. We also offer transport within Hatton and to nearby destinations including Badulla, Kotagala, Nuwara Eliya, and other surrounding areas.",
     inquiryText: "Hi Hiking Friends, I want to book the Transport package in Hatton.",
-    imageSrc: "/images/transport/transport-1.webp",
+    imageSrc: "/images/hatton-transport.png",
     imageAlt: "Transportation services from the airport to Hatton and nearby areas.",
     gallery: [
-      "/images/transport/transport-1.webp",
+      "/images/hatton-transport.png",
       "/images/transport/transport-2.webp",
       "/images/transport/transport-3.webp",
     ],
@@ -191,9 +191,9 @@ export const packages: PackageItem[] = [
     details:
       "Experience the spiritual and cultural richness of Hatton with visits to some of the most sacred temples in the region. This package includes visits to local Hindu Kovils, and nearby Buddhist temples.",
     inquiryText: "Hi Hiking Friends, I want to book the Temple Visit package in Hatton.",
-    imageSrc: "/images/temple/temple-1.webp",
+    imageSrc: "/images/sivasubmaniyar-temple.png",
     imageAlt: "Temple visits in Hatton including Sri Sivasubramaniyar Temple and nearby sacred sites",
-    gallery: ["/images/temple/temple-1.webp", "/images/temple/temple-2.webp", "/images/temple/temple-3.webp"],
+    gallery: ["/images/sivasubmaniyar-temple.png", "/images/temple/temple-2.webp", "/images/temple/temple-3.webp"],
   },
   {
     title: "Camping",
@@ -207,11 +207,11 @@ export const packages: PackageItem[] = [
     ],
     details: "Enjoy a refreshing one-day camping experience in the beautiful landscapes of Haritha Kanda and Gartmore. This package includes a visit to the stunning Gartmore Waterfall, light hiking, and a peaceful camping setup surrounded by mountains and greenery. Perfect for nature lovers looking for a short escape with unforgettable views.",
     inquiryText: "Hi Hiking Friends, I want to book the Camping experience in Hatton.",
-    imageSrc: "/images/camping/camping-1.webp",
+    imageSrc: "/images/haritha-kanda.png",
     imageAlt: "Camping experience at Haritha Kanda and Gartmore Waterfall",
     gallery: [
       "/images/photo-gallery/sunrise-viewing.webp",
-      "/images/camping/camping-1.webp",
+      "/images/haritha-kanda.png",
       "/images/camping/camping-2.webp",
       "/images/camping/camping-3.webp"
     ],

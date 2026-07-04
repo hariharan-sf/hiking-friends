@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionReveal from "@/components/section-reveal";
 
 const whatsappUrl =
@@ -41,8 +42,14 @@ export default function DiscoverHatton() {
         </div>
 
         <SectionReveal delay={0.08}>
-          <div className="flex aspect-[16/10] items-center justify-center rounded-2xl border border-dashed border-amber-200 bg-amber-50/40 p-6 text-center text-sm text-slate-600">
-            16:10 image placeholder - Panoramic Hatton valley with tea estates, mist, and sunrise light
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+            <Image
+              src="/images/discover-hatt.png"
+              alt="Panoramic Hatton valley with tea estates, mist, and sunrise light"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
           </div>
         </SectionReveal>
       </div>
