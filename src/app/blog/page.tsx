@@ -8,6 +8,14 @@ import { primaryNavItems } from "@/data/navigation";
 
 const posts = [
   {
+    title: "The Most Instagrammable Spots in Nuwara Eliya to Visit in 2026",
+    description:
+      "A trend-focused photo guide to Nuwara Eliya, covering Gregory Lake, tea viewpoints, waterfalls, and the Pekoe Trail.",
+    href: "/blog/instagrammable-nuwara-eliya-2026",
+    image: "/images/nuwaraeliya-tour.png",
+    tag: "2026 Photo Guide",
+  },
+  {
     title: "St. Clair's Falls: Sri Lanka's Widest Waterfall You Must See",
     description:
       "A traveler-focused guide to visiting St. Clair's Falls in Hatton, with timing tips and a scenic Tuktuk tour route.",

@@ -7,7 +7,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: ["/", "/packages", "/blog", "/blog/tree-hugging", "/blog/st-claire-waterfall", "/privacy-policy", "/terms-and-conditions"],
+        allow: [
+          "/",
+          "/packages",
+          "/blog",
+          "/blog/tree-hugging",
+          "/blog/st-claire-waterfall",
+          "/blog/instagrammable-nuwara-eliya-2026",
+          "/privacy-policy",
+          "/terms-and-conditions",
+        ],
         disallow: ["/api/", "/admin/"],
       },
     ],
